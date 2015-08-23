@@ -11,11 +11,8 @@ public class SceneManager {
     private BaseScene loadingScene;
     
     private static final SceneManager INSTANCE = new SceneManager();
-    
     private SceneType currentSceneType = SceneType.SCENE_SPLASH;
-    
     private BaseScene currentScene;
-    
     private Engine engine = ResourceManager.getInstance().engine;
     
     public enum SceneType {

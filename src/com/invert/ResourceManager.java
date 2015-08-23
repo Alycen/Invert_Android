@@ -22,7 +22,10 @@ public class ResourceManager {
     public GameActivity activity;
     public Camera camera;
     public VertexBufferObjectManager vbom;
-
+    
+    public ITextureRegion splash_Region;
+    private BitmapTextureAtlas splashTextureAtlas;
+    
     public void loadMenuResources() {
         loadMenuGraphics();
         loadMenuAudio();
@@ -55,11 +58,15 @@ public class ResourceManager {
     }
     
     public void loadSplashScreen() {
-    
+    	BitmapTextureAtlasTextureRegionFactory.setAssetBasePath("gfx/");
+    	splashTextureAtlas = new BitmapTextureAtlas(activity.getTextureManager(),256,256,TextureOptions.BILINEAR);
+    	splash_Region = BitmapTextureAtlasTextureRegionFactory.createFromAsset(splashTextureAtlas, activity, "splash.png",0,0);
+    	splashTextureAtlas.load();
     }
     
     public void unloadSplashScreen() {
-
+    	splashTextureAtlas.unload();
+    	splash_Region = null;
     }
     
     /**

@@ -13,16 +13,16 @@ import com.invert.SceneManager.SceneType;
 public abstract class BaseScene extends Scene {
     protected Engine engine;
     protected Activity activity;
-    protected ResourceManager resourcesManager;
+    protected ResourceManager resourceManager;
     protected VertexBufferObjectManager vbom;
     protected Camera camera;
     
     public BaseScene() {
-        this.resourcesManager = ResourceManager.getInstance();
-        this.engine = resourcesManager.engine;
-        this.activity = resourcesManager.activity;
-        this.vbom = resourcesManager.vbom;
-        this.camera = resourcesManager.camera;
+        this.resourceManager = ResourceManager.getInstance();
+        this.engine = resourceManager.engine;
+        this.activity = resourceManager.activity;
+        this.vbom = resourceManager.vbom;
+        this.camera = resourceManager.camera;
         createScene();
     }
         
