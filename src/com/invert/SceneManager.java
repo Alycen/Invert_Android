@@ -1,6 +1,7 @@
 package com.invert;
 
 import org.andengine.engine.Engine;
+import org.andengine.ui.IGameInterface.OnCreateSceneCallback;
 
 import com.invert.BaseScene;
 
@@ -45,6 +46,19 @@ public class SceneManager {
             default:
                 break;
         }
+    }
+    
+    public void createSplashScene(OnCreateSceneCallback pOnCreateSceneCallback) {
+    	ResourceManager.getInstance().loadSplashScreen();
+    	splashScene = new SplashScene();
+    	currentScene = splashScene;
+    	pOnCreateSceneCallback.onCreateSceneFinished(splashScene);
+    }
+    
+    public void disposeSplashScene() {
+    	ResourceManager.getInstance().unloadSplashScreen();
+    	splashScene.dispose();
+    	splashScene = null;
     }
     
     public static SceneManager getInstance() {
