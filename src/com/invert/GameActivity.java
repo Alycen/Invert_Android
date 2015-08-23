@@ -28,19 +28,19 @@ public class GameActivity extends BaseGameActivity {
 	}
 
 	@Override
-	public void onCreateResources(OnCreateResourcesCallback pOnCreateResourcesCallback) throws Exception {
+	public void onCreateResources(OnCreateResourcesCallback pOnCreateResourcesCallback) throws IOException {
 		ResourceManager.prepareManager(mEngine, this, camera, getVertexBufferObjectManager());
 		resourceManager = ResourceManager.getInstance();
 		pOnCreateResourcesCallback.onCreateResourcesFinished();
 	}
 
 	@Override
-	public void onCreateScene(OnCreateSceneCallback pOnCreateSceneCallback) throws Exception {
+	public void onCreateScene(OnCreateSceneCallback pOnCreateSceneCallback) throws IOException {
 		SceneManager.getInstance().createSplashScene(pOnCreateSceneCallback);
 	}
 
 	@Override
-	public void onPopulateScene(Scene pScene, OnPopulateSceneCallback pOnPopulateSceneCallback) throws Exception {
+	public void onPopulateScene(Scene pScene, OnPopulateSceneCallback pOnPopulateSceneCallback) throws IOException {
 		mEngine.registerUpdateHandler(new TimerHandler(2f, new ITimerCallback() {
 			public void onTimePassed(final TimerHandler pTimerHandler) {
 				mEngine.unregisterUpdateHandler(pTimerHandler);
